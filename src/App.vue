@@ -5,6 +5,7 @@ import Home from "./components/Home.vue";
 import Experience from "./components/Experience.vue";
 import Social from "./components/Social.vue";
 import Donate from "./components/Donate.vue";
+import lucmsilvaOverlay from "./components/lucmsilvaOverlay.vue";
 const year = new Date().getFullYear();
 
 const desktopRef = ref(null);
@@ -223,75 +224,77 @@ const k = () =>
 </script>
 
 <template>
-  <div class="window active glass">
-    <div class="title-bar">
-      <div class="title-bar-text">lucmsilva's Website</div>
-      <div class="title-bar-controls">
-        <button aria-label="Help"></button>
-        <button aria-label="Close" @click="k"></button>
+  <lucmsilvaOverlay>
+    <div class="window active glass">
+      <div class="title-bar">
+        <div class="title-bar-text">lucmsilva's Website</div>
+        <div class="title-bar-controls">
+          <button aria-label="Help"></button>
+          <button aria-label="Close" @click="k"></button>
+        </div>
       </div>
-    </div>
-    <div class="window-body">
-      <div class="main-window">
-        <header>
-          <RouterLink to="/" class="logo">lucmsilva</RouterLink>
-          <ul class="right-side">
-            <li>
-              <RouterLink :to="{ path: '/', hash: '#home' }">Home</RouterLink>
-            </li>
-            <li><a target="_blank" rel="noopener noreferrer" href="https://blog.lucmsilva.com">Blog</a></li>
-            <li>
-              <RouterLink :to="{ path: '/', hash: '#experience' }"
-                >Experience</RouterLink
-              >
-            </li>
-            <li>
-              <RouterLink :to="{ path: '/', hash: '#social' }">Social</RouterLink>
-            </li>
-            <li>
-              <RouterLink :to="{ path: '/', hash: '#donate' }">Donate</RouterLink>
-            </li>
-          </ul>
-          <ul class="right-side-mobile">
-            <li>
-              <RouterLink :to="{ path: '/', hash: '#home' }">Home</RouterLink>
-            </li>
-            <li><a target="_blank" rel="noopener noreferrer" href="https://blog.lucmsilva.com">Blog</a></li>
-            <li>
-              <RouterLink :to="{ path: '/', hash: '#donate' }">Donate</RouterLink>
-            </li>
-          </ul>
-        </header>
-        <div
-          ref="desktopRef"
-          class="desktop-area"
-          :class="{ 'single-window-mode': isSingleWindowMode, 'masonry-mode': isMasonryMode }"
-        >
+      <div class="window-body">
+        <div class="main-window">
+          <header>
+            <RouterLink to="/" class="logo">lucmsilva</RouterLink>
+            <ul class="right-side">
+              <li>
+                <RouterLink :to="{ path: '/', hash: '#home' }">Home</RouterLink>
+              </li>
+              <li><a target="_blank" rel="noopener noreferrer" href="https://blog.lucmsilva.com">Blog</a></li>
+              <li>
+                <RouterLink :to="{ path: '/', hash: '#experience' }"
+                  >Experience</RouterLink
+                >
+              </li>
+              <li>
+                <RouterLink :to="{ path: '/', hash: '#social' }">Social</RouterLink>
+              </li>
+              <li>
+                <RouterLink :to="{ path: '/', hash: '#donate' }">Donate</RouterLink>
+              </li>
+            </ul>
+            <ul class="right-side-mobile">
+              <li>
+                <RouterLink :to="{ path: '/', hash: '#home' }">Home</RouterLink>
+              </li>
+              <li><a target="_blank" rel="noopener noreferrer" href="https://blog.lucmsilva.com">Blog</a></li>
+              <li>
+                <RouterLink :to="{ path: '/', hash: '#donate' }">Donate</RouterLink>
+              </li>
+            </ul>
+          </header>
           <div
-            v-for="win in visibleWindows"
-            :key="win.id"
-            class="desktop-window"
-            :style="{ left: `${win.x}px`, top: `${win.y}px`, zIndex: win.z }"
-            @pointerdown="startDrag($event, win.id)"
+            ref="desktopRef"
+            class="desktop-area"
+            :class="{ 'single-window-mode': isSingleWindowMode, 'masonry-mode': isMasonryMode }"
           >
-            <component :is="win.component" />
+            <div
+              v-for="win in visibleWindows"
+              :key="win.id"
+              class="desktop-window"
+              :style="{ left: `${win.x}px`, top: `${win.y}px`, zIndex: win.z }"
+              @pointerdown="startDrag($event, win.id)"
+            >
+              <component :is="win.component" />
+            </div>
+          </div>
+          <div class="footer">
+            <p>
+              &copy; {{ year }}
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/lucmsilva651">Lucas Gabriel (lucmsilva)</a>.
+              Website developed with
+              <a target="_blank" rel="noopener noreferrer" href="https://vuejs.org/">Vue</a>
+              and
+              <a target="_blank" rel="noopener noreferrer" href="https://vite.dev/">Vite.</a> 
+              Icons by multiple sources via
+              <a target="_blank" rel="noopener noreferrer" href="https://iconify.design/">Iconify</a>.
+            </p>
           </div>
         </div>
-        <div class="footer">
-          <p>
-            &copy; {{ year }}
-            <a target="_blank" rel="noopener noreferrer" href="https://github.com/lucmsilva651">Lucas Gabriel (lucmsilva)</a>.
-            Website developed with
-            <a target="_blank" rel="noopener noreferrer" href="https://vuejs.org/">Vue</a>
-            and
-            <a target="_blank" rel="noopener noreferrer" href="https://vite.dev/">Vite.</a> 
-            Icons by multiple sources via
-            <a target="_blank" rel="noopener noreferrer" href="https://iconify.design/">Iconify</a>.
-          </p>
-        </div>
       </div>
     </div>
-  </div>
+  </lucmsilvaOverlay>
 </template>
 
 <style>
