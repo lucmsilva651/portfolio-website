@@ -92,7 +92,6 @@ function onOverlayClick() {
   gap: 0.4rem;
   font-weight: bold;
   font-size: 3rem;
-  cursor: default;
 }
 
 .letter {
