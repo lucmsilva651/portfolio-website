@@ -89,8 +89,8 @@ function onOverlayClick() {
 
 .letters {
   display: flex;
-  gap: 0.4rem;
   font-weight: bold;
+  font-family: monospace;
   font-size: 3rem;
 }
 
@@ -104,11 +104,10 @@ function onOverlayClick() {
 .letter.active {
   color: var(--color-text-primary);
   background: var(--color-border-soft);
-  transform: translateY(-6px);
 }
 
 .hint {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   letter-spacing: 0.05em;
   color: var(--color-text-secondary);
   min-height: 1.5rem;
@@ -117,7 +116,7 @@ function onOverlayClick() {
 .instructions {
   position: absolute;
   bottom: 2rem;
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   color: var(--color-text-muted);
 }
 
