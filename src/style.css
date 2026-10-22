@@ -38,7 +38,6 @@
 }
 
 body {
-  overflow: hidden;
   margin: 0;
 }
 
@@ -53,20 +52,24 @@ h1 {
   font-size: 56px;
   letter-spacing: -1.68px;
   margin: 32px 0;
+
   @media (max-width: 1024px) {
     font-size: 36px;
     margin: 20px 0;
   }
 }
+
 h2 {
   font-size: 24px;
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
+
   @media (max-width: 1024px) {
     font-size: 20px;
   }
 }
+
 p {
   margin: 0;
 }
@@ -86,12 +89,12 @@ code {
   background: var(--code-bg);
 }
 
-  svg:not(.button-icon) {
-    color: var(--accent);
-    margin-bottom: 16px;
-    width: 28px;
-    height: 28px;
-  }
+svg:not(.button-icon) {
+  color: var(--accent);
+  margin-bottom: 16px;
+  width: 28px;
+  height: 28px;
+}
 
 .counter {
   font-size: 16px;
@@ -101,11 +104,11 @@ code {
   background: var(--accent-bg);
   border: 2px solid transparent;
   transition: border-color 0.3s;
-  margin-bottom: 24px;
 
   &:hover {
     border-color: var(--accent-border);
   }
+
   &:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
@@ -137,7 +140,7 @@ code {
 #center {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.2em;
   place-content: center;
   text-align: center;
   place-items: center;
@@ -147,13 +150,20 @@ code {
   div h1 {
     margin: 0 0 2rem 0;
   }
+
   div p {
     margin: 0;
+  }
+
+  .tip {
+    margin-bottom: 24px;
+    font-variation-settings: 'slnt' -10; 
   }
 
   button {
     cursor: pointer;
   }
+
   @media (max-width: 1024px) {
     gap: 18px;
   }
@@ -164,9 +174,10 @@ code {
   border-top: 1px solid var(--border);
   text-align: left;
 
-  & > div {
+  &>div {
     flex: 1 1 0;
     padding: 32px;
+
     @media (max-width: 1024px) {
       padding: 24px 20px;
     }
@@ -208,6 +219,7 @@ code {
     &:hover {
       box-shadow: var(--shadow);
     }
+
     .button-icon {
       height: 28px;
       width: 28px;
@@ -233,6 +245,7 @@ code {
 
 #spacer {
   border-top: 1px solid var(--border);
+
   @media (max-width: 1024px) {
     height: 48px;
   }
@@ -254,6 +267,7 @@ code {
     left: 0;
     border-left-color: var(--border);
   }
+
   &::after {
     right: 0;
     border-right-color: var(--border);

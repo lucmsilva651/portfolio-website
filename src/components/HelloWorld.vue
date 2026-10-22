@@ -33,6 +33,7 @@ const calcAge = (d) => {
       <button type="button" class="counter" @click="k">
         Click here
       </button>
+      <p class="tip">Scroll down to see more info</p>
     </section>
     <div class="ticks"></div>
     <section id="next-steps">

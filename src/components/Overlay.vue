@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
 
 const WORD = 'lucmsilva.com'
 const letters = WORD.split('')
@@ -45,6 +45,7 @@ const MEANINGS = {
   '.co': 'Company of one',
   com: 'Comment section closed'
 }
+
 const revealed = ref(!window.matchMedia('(hover: hover)').matches)
 const activeStart = ref(0)
 
@@ -64,8 +65,23 @@ const currentMeaning = computed(() => {
 
 function onOverlayClick() {
   revealed.value = true
-  document.body.style.overflow = 'auto'
 }
+
+function syncScrollLock(locked) {
+  document.body.style.overflow = locked ? 'hidden' : ''
+}
+
+onMounted(() => {
+  syncScrollLock(!revealed.value)
+})
+
+watch(revealed, (value) => {
+  syncScrollLock(!value)
+}, { immediate: true })
+
+onBeforeUnmount(() => {
+  syncScrollLock(false)
+})
 </script>
 
 <style scoped>
