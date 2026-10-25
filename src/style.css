@@ -11,11 +11,9 @@
   --shadow:
     rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
 
-  --sans: "Google Sans Flex", sans-serif;
-  --heading: "Google Sans Flex", sans-serif;
   --mono: "Google Sans Code", monospace;
 
-  font: 18px/145% var(--sans);
+  font: 18px/145% "Google Sans Flex", sans-serif;
   letter-spacing: 0.18px;
   color-scheme: dark;
   color: var(--text);
@@ -49,13 +47,12 @@ h2 {
 }
 
 h1 {
-  font-size: 56px;
+  font-size: 42px;
   letter-spacing: -1.68px;
-  margin: 32px 0;
+  margin: 0;
 
   @media (max-width: 1024px) {
     font-size: 36px;
-    margin: 20px 0;
   }
 }
 
@@ -74,12 +71,8 @@ p {
   margin: 0;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+button {
+  font-family: inherit;
 }
 
 code {
@@ -119,10 +112,12 @@ svg:not(.button-icon) {
   position: relative;
 
   .base {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
     border-radius: 50%;
-    width: 170px;
-    position: relative;
-    z-index: 0;
+    border: 2px solid var(--border);
+    box-shadow: 0 0 0 4px var(--accent-bg);
   }
 }
 
@@ -145,19 +140,13 @@ svg:not(.button-icon) {
   text-align: center;
   place-items: center;
   flex-grow: 1;
-  padding: 32px 20px 24px;
 
   div h1 {
-    margin: 0 0 2rem 0;
+    margin: 0 0 1.2rem 0;
   }
 
   div p {
     margin: 0;
-  }
-
-  .tip {
-    margin-bottom: 24px;
-    font-variation-settings: 'slnt' -10; 
   }
 
   button {
@@ -169,7 +158,7 @@ svg:not(.button-icon) {
   }
 }
 
-#next-steps {
+.box {
   display: flex;
   border-top: 1px solid var(--border);
   text-align: left;
@@ -189,7 +178,8 @@ svg:not(.button-icon) {
   }
 }
 
-#social {
+#social,
+#center {
   border-right: 1px solid var(--border);
 
   @media (max-width: 1024px) {
@@ -198,7 +188,7 @@ svg:not(.button-icon) {
   }
 }
 
-#next-steps ul {
+.box ul {
   list-style: none;
   padding: 0;
   display: flex;
@@ -224,6 +214,19 @@ svg:not(.button-icon) {
       height: 28px;
       width: 28px;
     }
+
+    transition: background-color 0.2s ease,
+    box-shadow 0.2s ease;
+  }
+
+  a:hover {
+    background: var(--accent-bg);
+    box-shadow: var(--shadow);
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
   }
 
   @media (max-width: 1024px) {
