@@ -199,7 +199,6 @@ const calcAge = (d) => {
         <p>If you'd like to support my work, you can donate below. Please only contribute if you can afford it, as donations are non-refundable.</p>
         <ul>
           <li><a href="/donate.txt">Donate</a></li>
-          <li><a href="/crypto.txt">Cryptocurrency</a></li>
         </ul>
       </div>
     </section>
